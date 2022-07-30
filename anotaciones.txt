@@ -1,0 +1,4 @@
+1. Crear un proyecto en laravel 9 con composer:
+        composer create-project laravel/laravel devstagram
+2. Iniciar el servidor de laravel:
+        php artisan serve
