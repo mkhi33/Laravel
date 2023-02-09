@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from "react-router-dom"
 
 const Registro = () => {
   return (
@@ -6,7 +6,7 @@ const Registro = () => {
       <h1 className='text-4xl font-black'>Crea tu cuenta</h1>
       <p>Crea tu cuenta llenando el formulario</p>
 
-      <div className='bg-white shadow-md rounded-md mt-10 px-5 py-10'>
+      <div className='bg-white shadow-md rounded-md mt-5 px-5 py-5'>
         <form>
           <div className='mb-4'>
             <label className='text-slate-800' htmlFor='name'>Nombre:</label>
@@ -55,6 +55,9 @@ const Registro = () => {
           />
         </form>
       </div>
+      <nav className="mt-2">
+        <Link to="/auth/login">¿Ya tienes cuenta? Inicia sesión</Link>
+      </nav>
     </>
   )
 }
