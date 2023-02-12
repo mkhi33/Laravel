@@ -1,8 +1,9 @@
+import { formatearDinero } from "../helpers"
 import useQuiosco from "../hooks/useQuiosco"
 import ResumenProducto from "./ResumenProducto"
 
 const Resumen = () => {
-  const { pedido } = useQuiosco()
+  const { pedido, total } = useQuiosco()
   return (
     <div className="w-72 h-screen overflow-y-scroll p-5">
       <h1 className="text-4xl font-black">Mi pedido</h1>
@@ -18,6 +19,7 @@ const Resumen = () => {
       </div>
       <p className="text-xl mt-10">
         Total: {''}
+        { formatearDinero(total)}
       </p>
       <form className="w-full">
         <div className="mt-5">
