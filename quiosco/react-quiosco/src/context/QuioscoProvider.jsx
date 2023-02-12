@@ -27,7 +27,7 @@ const QuioscoProvider = ( {children} ) => {
         setProducto(producto)
     }
 
-    const handleAgregarPedido = ({categoria_id, imagen, ...producto}) => {
+    const handleAgregarPedido = ({categoria_id, ...producto}) => {
         if( pedido.some( productoPedido => productoPedido.id === producto.id) ) {
             const arregloProductos = pedido.map( productoPedido => productoPedido.id === producto.id ? producto : productoPedido )
             setPedido(arregloProductos)
@@ -36,6 +36,18 @@ const QuioscoProvider = ( {children} ) => {
             setPedido([...pedido, producto])
             toast.success('Producto agregado al pedido')
         }
+    }
+
+    const handleEliminarProductoPedido = id => {
+        const arregloProductos = pedido.filter( productoPedido => productoPedido.id !== id )
+        setPedido(arregloProductos)
+        toast.success('Producto eliminado del pedido')
+    }
+
+    const handleEditarCantidad = (id ) => {
+        const productoActualizar = pedido.find( productoPedido => productoPedido.id === id )
+        setProducto(productoActualizar)
+        setModal(!modal)
     }
 
     return (
@@ -49,7 +61,9 @@ const QuioscoProvider = ( {children} ) => {
                 handleClickCategoria,
                 handleClickModal,
                 handleSetProducto,
-                handleAgregarPedido
+                handleAgregarPedido,
+                handleEditarCantidad,
+                handleEliminarProductoPedido
             }}
         >
             {children}
