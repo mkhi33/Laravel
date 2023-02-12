@@ -4,7 +4,7 @@ import useQuiosco from "../hooks/useQuiosco";
 
 
 const ModalProducto = () => {
-    const { producto, handleClickModal } = useQuiosco()
+    const { producto, handleClickModal, handleAgregarPedido } = useQuiosco()
     const [ cantidad, setCantidad ] = useState(1)
 
     const handleClick = value => {
@@ -42,7 +42,7 @@ const ModalProducto = () => {
                     </button>
                 </div>
                 
-                <button type="button" className="bg-indigo-600 hover:bg-indigo-800 px-5 py-2 mt-5 text-white font-bold uppercase rounded">Añadir al pedido</button>
+                <button onClick={() => handleAgregarPedido({...producto, cantidad})} type="button" className="bg-indigo-600 hover:bg-indigo-800 px-5 py-2 mt-5 text-white font-bold uppercase rounded">Añadir al pedido</button>
             </div>
         </div>
     );
